@@ -38,8 +38,8 @@ class gcs::install {
 
   # This is broken in Puppet 3.7 without the future parser
   # $version_parts = $::gcs::package_version.match(/(\d)\.(\d)\.(\d)(-+.*)?/)
-  # Graylog collector version is hardcoded to 0.1.3 to get around this
-  $version_parts = ['', '0', '1', '3'] 
+  # Graylog collector version is hardcoded to 0.1.4 to get around this
+  $version_parts = ['', '0', '1', '4'] 
 
   if !is_array($version_parts) {
     fail("There was a problem parsing the package_version ${::gcs::package_version}.")
