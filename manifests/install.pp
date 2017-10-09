@@ -84,12 +84,14 @@ class gcs::install {
         command => '/usr/bin/graylog-collector-sidecar -service install',
         creates => '/etc/systemd/system/collector-sidecar.service',
       }
+      ~> Service[$::gcs::service]
     } elsif $::gcs::service_provider == 'upstart' {
       exec { 'install_gcs_service':
         command => '/usr/bin/graylog-collector-sidecar -service install',
         creates => '/etc/init/collector-sidecar.conf',
       }
+      ~> Service[$::gcs::service]
     }
-  } ~> Service[$::gcs::service]
+  } 
 
 }
